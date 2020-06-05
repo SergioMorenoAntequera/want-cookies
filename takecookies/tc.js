@@ -1,11 +1,16 @@
 
 class TakeCookies {
     
-    constructor(options=null){
-        this.tc  = document.querySelector("#takecookies");
-        
+    constructor(element, options=null){
+        this.tc  = document.querySelector(element);
+        if(this.tc === null){
+            console.log("Please, read the god dammit documentation...");
+            return;
+        }
 
-        // Title
+        // Yeah  you are seeing right
+        if(options==null) { options = {}; }
+        // Title /////////////////////////////////////////////////////////////////////////
         this.tc.appendChild(document.createElement("h1"));
         if(options.title !== undefined){
             this.tc.querySelector("h1").innerHTML = options.title;
@@ -15,10 +20,11 @@ class TakeCookies {
 
 
 
-        // Contenedor
+        // Contenedor ////////////////////////////////////////////////////////////////////
         let content = document.createElement("div");
         content.classList.add("content");
         this.tc.appendChild(content);
+
 
         // Texto
         let text = document.createElement("p");
@@ -43,7 +49,7 @@ class TakeCookies {
         }
         text.appendChild(link);
 
-        // Botón
+        // Botón //////////////////////////////////////////////////////////////////////////
         let button = document.createElement("button");
         if(options.buttonText !== undefined){
             button.innerHTML = options.buttonText;
@@ -83,11 +89,3 @@ class TakeCookies {
         document.cookie = "wantcookies=true";
     }
 }
-
-let cookiesManager = new TakeCookies({
-    // title: "Politica de cookies",
-    // text: "PRAAA",
-    // cookiesPageText: "Saber más...",
-    // cookiesPageUrl: "Micasa.com/privacidad",
-    // buttonText: "OKAY"
-});
