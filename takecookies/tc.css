@@ -30,12 +30,13 @@
       grid-template-columns: 80% 20%;
 }
 
-#takecookies .content span {
+#takecookies .content a {
   cursor: pointer;
   color: #8ed5da;
+  text-decoration: none;
 }
 
-#takecookies .content .cta button {
+#takecookies .content button {
   margin-left: 1em;
   padding: 1em;
   border: none;
@@ -50,7 +51,7 @@
   #takecookies .content {
     display: block;
   }
-  #takecookies .content .cta button {
+  #takecookies .content button {
     margin-top: 1em;
     padding: 3em 1em;
   }

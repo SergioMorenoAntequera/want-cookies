@@ -21,11 +21,12 @@
         display: grid;
         grid-template-columns: 80% 20%;
 
-        span {
+        a {
             cursor: pointer;
             color: rgb(142, 213, 218);
+            text-decoration: none;
         }
-        .cta button {
+        button {
             margin-left: 1em;
             padding: 1em;
             border: none;
@@ -37,7 +38,7 @@
         }
         @media (max-width: 600px) {
             display: block;
-            .cta button {
+            button {
                 margin-top: 1em;
                 padding: 3em 1em;
             }
