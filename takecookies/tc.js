@@ -3,7 +3,7 @@ class TakeCookies {
     
     constructor(options=null){
         this.tc  = document.querySelector("#takecookies");
-        this.cta = document.querySelector("#takecookies button");
+        
 
         // Title
         this.tc.appendChild(document.createElement("h1"));
@@ -36,7 +36,6 @@ class TakeCookies {
         } else {
             link.setAttribute("href", "404");            
         }
-
         if(options.cookiesPageText !== undefined){
             link.innerHTML = options.cookiesPageText;
         } else {
@@ -44,12 +43,17 @@ class TakeCookies {
         }
         text.appendChild(link);
 
-
-        // text.innerHTML =+ 
+        // Botón
+        let button = document.createElement("button");
+        if(options.buttonText !== undefined){
+            button.innerHTML = options.buttonText;
+        } else {
+            button.innerHTML = "OKAY";
+        }
+        content.appendChild(button);
 
         
-        
-
+        this.cta = document.querySelector("#takecookies button");
         if(this.checkCookies()){
             this.tc.style.visibility = "hidden";
         } else {
@@ -84,5 +88,6 @@ let cookiesManager = new TakeCookies({
     // title: "Politica de cookies",
     // text: "PRAAA",
     // cookiesPageText: "Saber más...",
-    // cookiesPageUrl: "Micasa.com/privacidad"
+    // cookiesPageUrl: "Micasa.com/privacidad",
+    // buttonText: "OKAY"
 });
