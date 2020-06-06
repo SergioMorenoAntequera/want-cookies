@@ -18,8 +18,6 @@ class TakeCookies {
             this.tc.querySelector("h1").innerHTML = "Aviso de cookies";
         }
 
-
-
         // Contenedor ////////////////////////////////////////////////////////////////////
         let content = document.createElement("div");
         content.classList.add("content");
