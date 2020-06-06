@@ -19,15 +19,16 @@
 
     .content {
         display: grid;
-        grid-template-columns: 80% 20%;
-
+        grid-template-columns: 4fr 1fr; 
+        gap: 1em;
+        
         a {
             cursor: pointer;
             color: rgb(142, 213, 218);
             text-decoration: none;
+            &::before {content: " ";}
         }
         button {
-            margin-left: 1em;
             padding: 1em;
             border: none;
             border-radius: 5px;

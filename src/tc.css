@@ -26,8 +26,9 @@
 #takecookies .content {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 80% 20%;
-      grid-template-columns: 80% 20%;
+  -ms-grid-columns: 4fr 1fr;
+      grid-template-columns: 4fr 1fr;
+  gap: 1em;
 }
 
 #takecookies .content a {
@@ -36,8 +37,11 @@
   text-decoration: none;
 }
 
+#takecookies .content a::before {
+  content: " ";
+}
+
 #takecookies .content button {
-  margin-left: 1em;
   padding: 1em;
   border: none;
   border-radius: 5px;
