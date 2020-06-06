@@ -1,27 +1,58 @@
 
 class TakeCookies {
     
-    constructor(element, options=null){
-        this.tc  = document.querySelector(element);
-        if(this.tc === null){
-            console.log("Please, read the god dammit documentation...");
-            return;
-        }
+    element;
+    options = [
+        {
+            "name": "title", 
+            "default": "Cookies Warning",
+            "selector": "h1",
+        },
+        {
+            "name": "text", 
+            "default": "When you enter and browse in this site you are accepting the use of cookies in your browser. This cookies are going to be used to be able to offer a better and custome service, moreover to let us pick information to use used in a analytics system inside this webpage. Also, your cookies are not shared with anyone appart from the responsable group  of the webpage. This cookies are hold for an undefined ammount of time.",
+            "selector": "p",
+        },
+        {
+            "name": "cookiesPageText", 
+            "default": "See more...",
+            "selector": "a",
+        },
+        {
+            "name": "cookiesPageUrl", 
+            "default": "404",
+            "selector": "a url",
+        },
+        {
+            "name": "buttonText", 
+            "default": "OKAY",
+            "selector": "button",
+        },
+    ];
+    
+    constructor(element=null, options=null){
+        
+
+        this.setElement(element);
+        
+        this.options.forEach(option => {
+            this.setOption(option);
+        });
 
         // Yeah  you are seeing right
         if(options==null) { options = {}; }
         // Title /////////////////////////////////////////////////////////////////////////
-        this.tc.appendChild(document.createElement("h1"));
+        this.element.appendChild(document.createElement("h1"));
         if(options.title !== undefined){
-            this.tc.querySelector("h1").innerHTML = options.title;
+            this.element.querySelector("h1").innerHTML = options.title;
         } else {
-            this.tc.querySelector("h1").innerHTML = "Cookies Warning";
+            this.element.querySelector("h1").innerHTML = "Cookies Warning";
         }
 
         // Contenedor ////////////////////////////////////////////////////////////////////
         let content = document.createElement("div");
         content.classList.add("content");
-        this.tc.appendChild(content);
+        this.element.appendChild(content);
 
 
         // Texto
@@ -60,15 +91,16 @@ class TakeCookies {
         
         this.cta = document.querySelector("#takecookies button");
         if(this.checkCookies()){
-            this.tc.style.visibility = "hidden";
+            this.element.style.visibility = "hidden";
         } else {
             this.cta.addEventListener("click", (e) => {
                 this.giveCookies();
-                this.tc.style.visibility = "hidden";
+                this.element.style.visibility = "hidden";
             });
         }
     }
 
+    // COOKIES METHODS
     checkCookies() {
         var name = "wantcookies" + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -87,4 +119,23 @@ class TakeCookies {
     giveCookies() {
         document.cookie = "wantcookies=true";
     }
+
+
+    setElement(element){
+        if(element == null){
+            this.element = document.createElement('div');
+            this.element.setAttribute("id", "takecookies");
+            document.querySelector("body").appendChild(this.element);
+
+        } else {
+            this.element  = document.querySelector(element);
+        }
+    }
+
+    // Check option and put value
+    setOption(option){
+        let optionSelector =  this.element.querySelector(option.selector);
+        console.log(optionSelector);
+    }
+
 }
