@@ -15,7 +15,7 @@ class TakeCookies {
         if(options.title !== undefined){
             this.tc.querySelector("h1").innerHTML = options.title;
         } else {
-            this.tc.querySelector("h1").innerHTML = "Aviso de cookies";
+            this.tc.querySelector("h1").innerHTML = "Cookies Warning";
         }
 
         // Contenedor ////////////////////////////////////////////////////////////////////
@@ -30,7 +30,8 @@ class TakeCookies {
         if(options.text !== undefined){
             text.innerHTML = options.text;
         } else {
-            text.innerHTML = "Al entrar y navegar por este sitio web usted acepta que se utilicen cookies en su navegador. Estas cookies se van utilizando para poder ofrecer un servicio mejor y más peronalizado, además para recoger información de cara a un sistema de analíticas de la página y no son compartidas con ninguna persona externa a los creadores de la página y el sistema ya mencionado mantenidas por un tiempo indefinido. ";
+            // text.innerHTML = "Al entrar y navegar por este sitio web usted acepta que se utilicen cookies en su navegador. Estas cookies se van utilizando para poder ofrecer un servicio mejor y más peronalizado, además para recoger información de cara a un sistema de analíticas de la página y no son compartidas con ninguna persona externa a los creadores de la página y el sistema ya mencionado mantenidas por un tiempo indefinido. ";
+            text.innerHTML = "When you enter and browse in this site you are accepting the use of cookies in your browser. This cookies are going to be used to be able to offer a better and custome service, moreover to let us pick information to use used in a analytics system inside this webpage. Also, your cookies are not shared with anyone appart from the responsable group  of the webpage. This cookies are hold for an undefined ammount of time.";
         }
 
         // Enlace
@@ -43,7 +44,7 @@ class TakeCookies {
         if(options.cookiesPageText !== undefined){
             link.innerHTML = options.cookiesPageText;
         } else {
-            link.innerHTML = "Ver más";
+            link.innerHTML = "See more...";
         }
         text.appendChild(link);
 
